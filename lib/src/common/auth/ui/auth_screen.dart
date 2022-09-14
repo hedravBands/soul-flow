@@ -1,4 +1,3 @@
-// The screen of the first page.
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -14,7 +13,7 @@ class AuthScreen extends StatelessWidget {
             children: <Widget>[
               ElevatedButton(
                 onPressed: () => context.go('/game'),
-                child: const Text('Auth OK. Go Game.'),
+                child: const Text('User OK. Go to Game.'),
               ),
             ],
           ),

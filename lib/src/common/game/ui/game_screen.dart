@@ -1,18 +1,25 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class GameScreen extends StatefulWidget {
+import '../../auth/controller/change_notifier.dart';
+
+class GameScreen extends StatelessWidget {
   const GameScreen({Key? key}) : super(key: key);
 
   @override
-  State<GameScreen> createState() => _GameScreenState();
-}
-
-class _GameScreenState extends State<GameScreen> {
-  @override
   Widget build(BuildContext context) {
+    final LoginInfo info = context.read<LoginInfo>();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Game Screen'),
+        actions: <Widget>[
+          IconButton(
+            onPressed: info.logout,
+            tooltip: 'Logout: ${info.userName}',
+            icon: const Icon(Icons.logout),
+          )
+        ],
       ),
       body: Container(
         color: Colors.indigo,
