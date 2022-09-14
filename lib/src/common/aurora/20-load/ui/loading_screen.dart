@@ -1,23 +1,19 @@
-// The screen of the first page.
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
-import '../../../main.dart';
-
-class Page1Screen extends StatelessWidget {
-  /// Creates a [Page1Screen].
-  const Page1Screen({Key? key}) : super(key: key);
+class LoadingScreen extends StatelessWidget {
+  const LoadingScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) => Scaffold(
-        appBar: AppBar(title: const Text(App.title)),
+        appBar: AppBar(title: const Text('Loading Screen')),
         body: Center(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               ElevatedButton(
-                onPressed: () => context.go('/page2'),
-                child: const Text('Go to page 2'),
+                onPressed: () => context.go('/auth'),
+                child: const Text('Load OK. Go Auth.'),
               ),
             ],
           ),
