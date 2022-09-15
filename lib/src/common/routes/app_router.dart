@@ -53,7 +53,7 @@ class AppRouter {
       final splashLocation = state.namedLocation(APP_PAGE.splash.toName);
       final onboardLocation = state.namedLocation(APP_PAGE.onBoarding.toName);
 
-      final isLogedIn = appService.loginState;
+      final isLoggedIn = appService.loginState;
       final isInitialized = appService.initialized;
       final isOnboarded = appService.onboarding;
 
@@ -70,17 +70,16 @@ class AppRouter {
         // If not loggedin and not going to login redirect to Login
       } else if (isInitialized &&
           isOnboarded &&
-          !isLogedIn &&
+          !isLoggedIn &&
           !isGoingToLogin) {
         return loginLocation;
         // If all the scenarios are cleared but still going to any of that screen redirect to Home
-      } else if ((isLogedIn && isGoingToLogin) ||
+      } else if ((isLoggedIn && isGoingToLogin) ||
           (isInitialized && isGoingToInit) ||
           (isOnboarded && isGoingToOnboard)) {
         return homeLocation;
       } else {
-        // Else Don't do anything
-        return null;
+        return null; // Else Don't do anything
       }
     },
   );
