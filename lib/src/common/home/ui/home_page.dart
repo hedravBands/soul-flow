@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -14,7 +15,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _currentIndex = 0;
+  int _currentIndex = 2;
   late PageController _pageController;
 
   @override
@@ -70,7 +71,10 @@ class _HomePageState extends State<HomePage> {
               color: Colors.green,
             ),
             Container(
-              color: Colors.blue,
+              color: Colors.purple,
+            ),
+            Container(
+              color: Colors.indigo,
             ),
           ],
         ),
@@ -82,12 +86,29 @@ class _HomePageState extends State<HomePage> {
           _pageController.jumpToPage(index);
         },
         items: <BottomNavyBarItem>[
-          BottomNavyBarItem(title: Text('Item One'), icon: Icon(Icons.home)),
-          BottomNavyBarItem(title: Text('Item Two'), icon: Icon(Icons.apps)),
           BottomNavyBarItem(
-              title: Text('Item Three'), icon: Icon(Icons.chat_bubble)),
+              title: const Text('Item One'),
+              icon: Badge(
+                showBadge: 10 > 0 ? true : false,
+                badgeContent: Text(
+                  '!',
+                  style: const TextStyle(color: Colors.white70),
+                ),
+                badgeColor: Colors.deepOrange,
+                position: BadgePosition.topStart(),
+                child: const Icon(Icons.temple_buddhist_outlined),
+              )),
           BottomNavyBarItem(
-              title: Text('Item Four'), icon: Icon(Icons.settings)),
+              title: const Text('Item Two'), icon: const Icon(Icons.apps)),
+          BottomNavyBarItem(
+              title: const Text('Item Three'),
+              icon: const Icon(Icons.home_max_outlined)),
+          BottomNavyBarItem(
+              title: const Text('Item Four'),
+              icon: const Icon(Icons.event_available_outlined)),
+          BottomNavyBarItem(
+              title: const Text('Item Five'),
+              icon: const Icon(Icons.shop_outlined)),
         ],
       ),
     );
