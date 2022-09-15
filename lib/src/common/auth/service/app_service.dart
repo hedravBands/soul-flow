@@ -46,7 +46,7 @@ class AppService with ChangeNotifier {
     _onboarding = sharedPreferences.getBool(ONBOARD_KEY) ?? false;
     _loginState = sharedPreferences.getBool(LOGIN_KEY) ?? false;
 
-    await Future.delayed(const Duration(seconds: 2));
+    await Future.delayed(const Duration(seconds: 3));
 
     _initialized = true;
     notifyListeners();

@@ -1,6 +1,6 @@
 import 'package:go_router/go_router.dart';
-import 'package:soulflow/src/common/aurora/ui/onboarding_page.dart';
 
+import '../aurora/ui/onboarding_page.dart';
 import '../aurora/ui/splash_page.dart';
 import '../auth/service/app_service.dart';
 import '../auth/ui/login_page.dart';
@@ -18,6 +18,7 @@ class AppRouter {
   late final GoRouter _goRouter = GoRouter(
     refreshListenable: appService,
     initialLocation: APP_PAGE.home.toPath,
+    debugLogDiagnostics: true,
     routes: <GoRoute>[
       GoRoute(
         path: APP_PAGE.home.toPath,

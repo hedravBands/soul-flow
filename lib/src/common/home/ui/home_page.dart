@@ -27,8 +27,10 @@ class HomePage extends StatelessWidget {
             ),
             TextButton(
               onPressed: () {
-                GoRouter.of(context)
-                    .goNamed(APP_PAGE.error.toName, extra: "Erro from Home");
+                GoRouter.of(context).goNamed(
+                  APP_PAGE.error.toName,
+                  extra: "Error from Home",
+                );
               },
               child: const Text("Show Error"),
             ),

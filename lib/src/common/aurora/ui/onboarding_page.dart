@@ -19,7 +19,7 @@ class OnBoardingPage extends StatelessWidget {
           onPressed: () {
             appService.onboarding = true;
           },
-          child: const Text("Done"),
+          child: const Text("Welcome Onboard"),
         ),
       ),
     );

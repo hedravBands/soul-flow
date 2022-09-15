@@ -24,8 +24,7 @@ class MyApp extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  // ignore: library_private_types_in_public_api
-  _MyAppState createState() => _MyAppState();
+  State<MyApp> createState() => _MyAppState();
 }
 
 class _MyAppState extends State<MyApp> {
@@ -64,9 +63,10 @@ class _MyAppState extends State<MyApp> {
           final GoRouter goRouter =
               Provider.of<AppRouter>(context, listen: false).router;
           return MaterialApp.router(
-            title: "Router App",
+            routeInformationProvider: goRouter.routeInformationProvider,
             routeInformationParser: goRouter.routeInformationParser,
             routerDelegate: goRouter.routerDelegate,
+            title: "Router App",
           );
         },
       ),
