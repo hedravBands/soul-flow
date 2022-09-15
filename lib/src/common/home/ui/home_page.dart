@@ -4,6 +4,11 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
+import '../../../features/alchemy/ui/alchemy_page.dart';
+import '../../../features/ceremony/ui/ceremony_page.dart';
+import '../../../features/element/ui/element_page.dart';
+import '../../../features/merchant/ui/merchant_page.dart';
+import '../../../features/sanctuary/ui/sanctuary_page.dart';
 import '../../auth/service/auth_service.dart';
 import '../../routes/router_utils.dart';
 
@@ -15,8 +20,8 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  int _currentIndex = 2;
   late PageController _pageController;
+  int _currentIndex = 0;
 
   @override
   void initState() {
@@ -61,56 +66,66 @@ class _HomePageState extends State<HomePage> {
             setState(() => _currentIndex = index);
           },
           children: <Widget>[
-            Container(
-              color: Colors.blueGrey,
-            ),
-            Container(
-              color: Colors.red,
-            ),
-            Container(
-              color: Colors.green,
-            ),
-            Container(
-              color: Colors.purple,
-            ),
-            Container(
-              color: Colors.indigo,
-            ),
+            SanctuaryPage(),
+            ElementPage(),
+            AlchemyPage(),
+            CeremonyPage(),
+            MerchantPage(),
           ],
         ),
       ),
-      bottomNavigationBar: BottomNavyBar(
-        selectedIndex: _currentIndex,
-        onItemSelected: (index) {
-          setState(() => _currentIndex = index);
-          _pageController.jumpToPage(index);
-        },
-        items: <BottomNavyBarItem>[
-          BottomNavyBarItem(
-              title: const Text('Item One'),
-              icon: Badge(
-                showBadge: 10 > 0 ? true : false,
-                badgeContent: Text(
-                  '!',
-                  style: const TextStyle(color: Colors.white70),
-                ),
-                badgeColor: Colors.deepOrange,
-                position: BadgePosition.topStart(),
-                child: const Icon(Icons.temple_buddhist_outlined),
-              )),
-          BottomNavyBarItem(
-              title: const Text('Item Two'), icon: const Icon(Icons.apps)),
-          BottomNavyBarItem(
-              title: const Text('Item Three'),
-              icon: const Icon(Icons.home_max_outlined)),
-          BottomNavyBarItem(
-              title: const Text('Item Four'),
-              icon: const Icon(Icons.event_available_outlined)),
-          BottomNavyBarItem(
-              title: const Text('Item Five'),
-              icon: const Icon(Icons.shop_outlined)),
-        ],
-      ),
+      floatingActionButton: buildFAB(),
+      bottomNavigationBar: buildBottomNavyBar(),
+    );
+  }
+
+  BottomNavyBar buildBottomNavyBar() {
+    return BottomNavyBar(
+      selectedIndex: _currentIndex,
+      onItemSelected: (index) {
+        setState(() => _currentIndex = index);
+        _pageController.jumpToPage(index);
+      },
+      items: <BottomNavyBarItem>[
+        BottomNavyBarItem(
+            title: const Text('Sanctuary'),
+            icon: Badge(
+              showBadge: 10 > 0 ? true : false,
+              badgeContent: const Text(
+                '!',
+                style: TextStyle(color: Colors.white70),
+              ),
+              badgeColor: Colors.deepOrange,
+              position: BadgePosition.topStart(),
+              child: const Icon(Icons.temple_buddhist_outlined),
+            )),
+        BottomNavyBarItem(
+            title: const Text('Elements'), icon: const Icon(Icons.apps)),
+        BottomNavyBarItem(
+            title: const Text('Alchemy'),
+            icon: const Icon(Icons.soup_kitchen_outlined)),
+        BottomNavyBarItem(
+            title: const Text('Ceremony'),
+            icon: const Icon(Icons.celebration_outlined)),
+        BottomNavyBarItem(
+            title: const Text('Merchant'),
+            icon: const Icon(Icons.shop_outlined)),
+      ],
+    );
+  }
+}
+
+class buildFAB extends StatelessWidget {
+  const buildFAB({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return FloatingActionButton(
+      isExtended: true,
+      child: Icon(Icons.add_alert_outlined),
+      onPressed: () {},
     );
   }
 }
