@@ -59,22 +59,24 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      body: SizedBox.expand(
-        child: PageView(
-          controller: _pageController,
-          onPageChanged: (index) {
-            setState(() => _currentIndex = index);
-          },
-          children: <Widget>[
-            SanctuaryPage(),
-            ElementPage(),
-            AlchemyPage(),
-            CeremonyPage(),
-            MerchantPage(),
-          ],
+      body: SafeArea(
+        child: SizedBox.expand(
+          child: PageView(
+            controller: _pageController,
+            onPageChanged: (index) {
+              setState(() => _currentIndex = index);
+            },
+            children: const <Widget>[
+              SanctuaryPage(),
+              ElementPage(),
+              AlchemyPage(),
+              CeremonyPage(),
+              MerchantPage(),
+            ],
+          ),
         ),
       ),
-      floatingActionButton: buildFAB(),
+      floatingActionButton: const buildFAB(),
       bottomNavigationBar: buildBottomNavyBar(),
     );
   }
@@ -115,6 +117,7 @@ class _HomePageState extends State<HomePage> {
   }
 }
 
+// ignore: camel_case_types
 class buildFAB extends StatelessWidget {
   const buildFAB({
     Key? key,
@@ -124,7 +127,7 @@ class buildFAB extends StatelessWidget {
   Widget build(BuildContext context) {
     return FloatingActionButton(
       isExtended: true,
-      child: Icon(Icons.add_alert_outlined),
+      child: const Icon(Icons.add_alert_outlined),
       onPressed: () {},
     );
   }
