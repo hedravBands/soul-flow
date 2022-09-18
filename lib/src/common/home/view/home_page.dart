@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:provider/provider.dart';
 
-import '../../../features/alchemy/ui/alchemy_page.dart';
-import '../../../features/ceremony/ui/ceremony_page.dart';
-import '../../../features/element/ui/element_page.dart';
-import '../../../features/merchant/ui/merchant_page.dart';
-import '../../../features/sanctuary/ui/sanctuary_page.dart';
+import '../../../module/alchemy/view/alchemy_page.dart';
+import '../../../module/ceremony/view/ceremony_page.dart';
+import '../../../module/element/view/element_page.dart';
+import '../../../module/merchant/ui/merchant_page.dart';
+import '../../../module/sanctuary/presentation/view/sanctuary_page.dart';
 import '../../auth/service/auth_service.dart';
-import '../../routes/router_utils.dart';
+import '../../route/router_utils.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);

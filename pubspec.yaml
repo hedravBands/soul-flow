@@ -12,19 +12,32 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
-  bottom_navy_bar: ^6.0.0
-  flutter_bloc: ^8.1.1 # State Management
+  # Core
+  connectivity_plus: ^2.3.6+1 # Internet Checker
+  dartz: ^0.10.1 # Either<Left, Right>
   go_router: ^4.4.1 # Routes
-  provider: ^6.0.1
-  shared_preferences: ^2.0.11 # Storage: Local
+  # Model
+  equatable: ^2.0.5 # Same Object Checker
+  freezed_annotation: ^2.1.0  # Class Builder
+  json_annotation: ^4.6.0 # JSON (De)Serializer
+  # Data
+  http: ^0.13.5 # Repo: Remote
+  shared_preferences: ^2.0.11 # Repo: Local
+  # Service
+  flutter_bloc: ^8.1.1 # State Management
+  get_it: ^7.2.0 # Dependency Injection
   # Presentation
   badges: ^2.0.3
+  bottom_navy_bar: ^6.0.0
   modal_bottom_sheet: ^2.1.2
 
 dev_dependencies:
+  flutter_lints: ^2.0.0
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.0
+  build_runner: ^2.2.1 # Test / Model
+  freezed: ^2.1.0+1 # Model
+  json_serializable: ^6.3.2 # Model
 
 flutter:
   uses-material-design: true
@@ -59,3 +72,12 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+
+#  scripts:
+#    build:
+#      name: "Build Mocks for Tests/Freezed Classes"
+#      run: flutter pub run build_runner build --delete-conflicting-outputs
+#
+#    watch:
+#      name: "Watch changes in Mocks for Tests/Freezed Classes"
+#      run: flutter pub run build_runner watch

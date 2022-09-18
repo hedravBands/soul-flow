@@ -1,11 +1,11 @@
 import 'package:go_router/go_router.dart';
 
-import '../aurora/ui/onboarding_page.dart';
-import '../aurora/ui/splash_page.dart';
+import '../aurora/view/onboarding_page.dart';
+import '../aurora/view/splash_page.dart';
 import '../auth/service/app_service.dart';
-import '../auth/ui/login_page.dart';
-import '../error/ui/error_page.dart';
-import '../home/ui/home_page.dart';
+import '../auth/view/login_page.dart';
+import '../error/view/error_page.dart';
+import '../home/view/home_page.dart';
 import 'router_utils.dart';
 
 class AppRouter {

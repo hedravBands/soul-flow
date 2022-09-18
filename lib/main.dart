@@ -7,7 +7,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:soulflow/src/common/auth/service/app_service.dart';
 
 import 'src/common/auth/service/auth_service.dart';
-import 'src/common/routes/app_router.dart';
+import 'src/common/route/app_router.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();

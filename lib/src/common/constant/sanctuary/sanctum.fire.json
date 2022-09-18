@@ -1,0 +1,9 @@
+{
+  "id": "Sanctum.Fire",
+  "element": "Fire",
+  "type": "Essential",
+  "name": "Name.Fire",
+  "level": 0,
+  "description": "Description.Fire",
+  "info": ["i","n","f","o"]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "Sanctum.Air",
+  "element": "Air",
+  "type": "Essential",
+  "name": "Name.Air",
+  "level": 0,
+  "description": "Description.Air",
+  "info": ["i","n","f","o"]
+}

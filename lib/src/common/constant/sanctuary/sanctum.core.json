@@ -1,0 +1,9 @@
+{
+  "id": "Sanctum.Core",
+  "element": "Core",
+  "type": "Fundamental",
+  "name": "Name.Core",
+  "level": 0,
+  "description": "Description.Core",
+  "info": ["i","n","f","o"]
+}

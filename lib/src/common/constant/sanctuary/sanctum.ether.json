@@ -1,0 +1,9 @@
+{
+  "id": "Sanctum.Ether",
+  "element": "Ether",
+  "type": "Celestial",
+  "name": "Name.Water",
+  "level": 0,
+  "description": "Description.Water",
+  "info": ["i","n","f","o"]
+}

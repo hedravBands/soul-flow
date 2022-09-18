@@ -1,0 +1,9 @@
+{
+  "id": "Sanctum.Earth",
+  "element": "Earth",
+  "type": "Essential",
+  "name": "Name.Earth",
+  "level": 0,
+  "description": "Description.Earth",
+  "info": ["i","n","f","o"]
+}
