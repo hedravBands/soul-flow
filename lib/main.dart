@@ -66,7 +66,7 @@ class _MyAppState extends State<MyApp> {
             routeInformationProvider: goRouter.routeInformationProvider,
             routeInformationParser: goRouter.routeInformationParser,
             routerDelegate: goRouter.routerDelegate,
-            title: "Router App",
+            title: "Router Soul Flow",
           );
         },
       ),

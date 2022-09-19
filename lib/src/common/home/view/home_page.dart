@@ -38,46 +38,49 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     final authService = Provider.of<AuthService>(context);
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(APP_PAGE.home.toTitle),
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.error_outline),
-            onPressed: () {
-              GoRouter.of(context).goNamed(
-                APP_PAGE.error.toName,
-                extra: "Error from Home",
-              );
-            },
-          ),
-          IconButton(
-            icon: const Icon(Icons.logout_outlined),
-            onPressed: () {
-              authService.logOut();
-            },
-          ),
-        ],
-      ),
-      body: SafeArea(
-        child: SizedBox.expand(
-          child: PageView(
-            controller: _pageController,
-            onPageChanged: (index) {
-              setState(() => _currentIndex = index);
-            },
-            children: const <Widget>[
-              SanctuaryPage(),
-              ElementPage(),
-              AlchemyPage(),
-              CeremonyPage(),
-              MerchantPage(),
-            ],
+    return SafeArea(
+      child: Scaffold(
+        appBar: AppBar(
+          title: Text(APP_PAGE.home.toTitle),
+          backgroundColor: Colors.black87,
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.error_outline),
+              onPressed: () {
+                GoRouter.of(context).goNamed(
+                  APP_PAGE.error.toName,
+                  extra: "Error from Home",
+                );
+              },
+            ),
+            IconButton(
+              icon: const Icon(Icons.logout_outlined),
+              onPressed: () {
+                authService.logOut();
+              },
+            ),
+          ],
+        ),
+        body: SafeArea(
+          child: SizedBox.expand(
+            child: PageView(
+              controller: _pageController,
+              onPageChanged: (index) {
+                setState(() => _currentIndex = index);
+              },
+              children: const <Widget>[
+                SanctuaryPage(),
+                ElementPage(),
+                AlchemyPage(),
+                CeremonyPage(),
+                MerchantPage(),
+              ],
+            ),
           ),
         ),
+        floatingActionButton: const buildFAB(),
+        bottomNavigationBar: buildBottomNavyBar(),
       ),
-      floatingActionButton: const buildFAB(),
-      bottomNavigationBar: buildBottomNavyBar(),
     );
   }
 

@@ -30,7 +30,9 @@ dependencies:
   badges: ^2.0.3
   bottom_navy_bar: ^6.0.0
   modal_bottom_sheet: ^2.1.2
-
+  provider: ^6.0.3
+  # lottie: # after_effects_rendering # https://xvrh.github.io/lottie-flutter-web/#/
+  # sliding_up_panel # good for events? maybe
 dev_dependencies:
   flutter_lints: ^2.0.0
   flutter_test:
