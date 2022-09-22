@@ -4,9 +4,28 @@ abstract class SanctumState extends Equatable {
   const SanctumState();
 }
 
-class SanctumInitial extends SanctumState {
+class Empty extends SanctumState {
   @override
-  List<Object> get props => [];
+  // TODO: implement props
+  List<Object?> get props => throw UnimplementedError();
+}
+
+class Loading extends SanctumState {
+  @override
+  // TODO: implement props
+  List<Object?> get props => throw UnimplementedError();
+}
+
+class Loaded extends SanctumState {
+  @override
+  // TODO: implement props
+  List<Object?> get props => throw UnimplementedError();
+}
+
+class Error extends SanctumState {
+  @override
+  // TODO: implement props
+  List<Object?> get props => throw UnimplementedError();
 }
 
 // STATES

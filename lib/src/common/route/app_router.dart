@@ -23,7 +23,9 @@ class AppRouter {
       GoRoute(
         path: APP_PAGE.home.toPath,
         name: APP_PAGE.home.toName,
-        builder: (context, state) => const HomePage(),
+        builder: (context, state) {
+          return const HomePage();
+        },
       ),
       GoRoute(
         path: APP_PAGE.splash.toPath,

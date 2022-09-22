@@ -8,7 +8,7 @@ import '../../data/repository/sanctum_repository.dart';
 class CreateSanctumUsecase implements Usecase<Unit, Params> {
   final SanctumRepository repository;
 
-  CreateSanctumUsecase(this.repository);
+  CreateSanctumUsecase({required this.repository});
 
   @override
   Future<Either<Failure, Unit>> call(Params params) async {

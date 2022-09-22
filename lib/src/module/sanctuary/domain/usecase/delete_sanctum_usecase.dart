@@ -8,7 +8,7 @@ import '../../data/repository/sanctum_repository.dart';
 class DeleteSanctumUsecase implements Usecase<Unit, Params> {
   final SanctumRepository repository;
 
-  DeleteSanctumUsecase(this.repository);
+  DeleteSanctumUsecase({required this.repository});
 
   @override
   Future<Either<Failure, Unit>> call(Params params) async {

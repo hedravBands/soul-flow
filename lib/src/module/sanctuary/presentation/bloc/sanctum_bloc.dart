@@ -17,7 +17,7 @@ class SanctumBloc extends Bloc<SanctumEvent, SanctumState> {
   SanctumBloc({
     required this.createSanctum,
     required this.deleteSanctum,
-  }) : super(SanctumInitial()) {
+  }) : super(Empty()) {
     on<SanctumEvent>((event, emit) {
       // TODO: implement event handler
     });

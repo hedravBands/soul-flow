@@ -8,7 +8,7 @@ import '../datasource/sanctum_local_datasource.dart';
 class SanctumRepositoryImpl implements SanctumRepository {
   final SanctumLocalDatasource localDatasource;
 
-  SanctumRepositoryImpl(this.localDatasource);
+  SanctumRepositoryImpl({required this.localDatasource});
 
   @override
   Future<Either<Failure, Unit>> createSanctum(String id) async {

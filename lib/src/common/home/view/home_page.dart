@@ -68,7 +68,7 @@ class _HomePageState extends State<HomePage> {
               onPageChanged: (index) {
                 setState(() => _currentIndex = index);
               },
-              children: const <Widget>[
+              children: const [
                 SanctuaryPage(),
                 ElementPage(),
                 AlchemyPage(),

@@ -6,11 +6,13 @@ import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:soulflow/src/common/auth/service/app_service.dart';
 
+import 'injection_container.dart' as di;
 import 'src/common/auth/service/auth_service.dart';
 import 'src/common/route/app_router.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await di.init();
   final SharedPreferences sharedPreferences =
       await SharedPreferences.getInstance();
   runApp(MyApp(sharedPreferences: sharedPreferences));
