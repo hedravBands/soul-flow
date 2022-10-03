@@ -39,14 +39,14 @@ class _SanctuaryPageState extends State<SanctuaryPage> {
                       TextButton(
                           onPressed: () {
                             context.read<SanctumBloc>().add(
-                                  CreateSanctumEvent(),
+                                  const CreateSanctumEvent(id: 'index'),
                                 );
                           },
                           child: const Text('Create Sanctum')),
                       TextButton(
                           onPressed: () {
                             context.read<SanctumBloc>().add(
-                                  DeleteSanctumEvent(),
+                                  const DeleteSanctumEvent(id: 'index'),
                                 );
                           },
                           child: const Text('Delete Sanctum')),

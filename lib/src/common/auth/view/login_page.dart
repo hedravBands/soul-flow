@@ -15,11 +15,15 @@ class LoginPage extends StatelessWidget {
         title: Text(APP_PAGE.login.toTitle),
       ),
       body: Center(
-        child: TextButton(
-          onPressed: () {
-            authService.login();
-          },
-          child: const Text("Log in"),
+        child: Column(
+          children: [
+            TextButton(
+              onPressed: () {
+                authService.login();
+              },
+              child: const Text("Log in as a Guest"),
+            ),
+          ],
         ),
       ),
     );

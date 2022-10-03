@@ -2,30 +2,31 @@ part of 'sanctum_bloc.dart';
 
 abstract class SanctumState extends Equatable {
   const SanctumState();
+
+  @override
+  List<Object?> get props => [];
 }
 
-class Empty extends SanctumState {
-  @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
-}
+class Empty extends SanctumState {}
 
-class Loading extends SanctumState {
-  @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
-}
+class Loading extends SanctumState {}
 
 class Loaded extends SanctumState {
+  final Sanctum sanctum;
+
+  const Loaded({required this.sanctum});
+
   @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+  List<Object> get props => [sanctum];
 }
 
 class Error extends SanctumState {
+  final String message;
+
+  const Error({required this.message});
+
   @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+  List<Object> get props => [message];
 }
 
 // STATES

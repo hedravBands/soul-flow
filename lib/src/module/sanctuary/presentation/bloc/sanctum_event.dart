@@ -5,13 +5,19 @@ abstract class SanctumEvent extends Equatable {
 }
 
 class CreateSanctumEvent extends SanctumEvent {
+  final String id;
+
+  const CreateSanctumEvent({required this.id});
+
   @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+  List<Object> get props => [id];
 }
 
 class DeleteSanctumEvent extends SanctumEvent {
+  final String id;
+
+  const DeleteSanctumEvent({required this.id});
+
   @override
-  // TODO: implement props
-  List<Object?> get props => throw UnimplementedError();
+  List<Object> get props => [id];
 }
