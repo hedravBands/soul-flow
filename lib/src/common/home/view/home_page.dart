@@ -105,16 +105,21 @@ class _HomePageState extends State<HomePage> {
               child: const Icon(Icons.temple_buddhist_outlined),
             )),
         BottomNavyBarItem(
-            title: const Text('Elements'), icon: const Icon(Icons.apps)),
+          title: const Text('Elements'),
+          icon: const Icon(Icons.apps),
+        ),
         BottomNavyBarItem(
-            title: const Text('Alchemy'),
-            icon: const Icon(Icons.soup_kitchen_outlined)),
+          title: const Text('Alchemy'),
+          icon: const Icon(Icons.soup_kitchen_outlined),
+        ),
         BottomNavyBarItem(
-            title: const Text('Ceremony'),
-            icon: const Icon(Icons.celebration_outlined)),
+          title: const Text('Ceremony'),
+          icon: const Icon(Icons.celebration_outlined),
+        ),
         BottomNavyBarItem(
-            title: const Text('Merchant'),
-            icon: const Icon(Icons.shop_outlined)),
+          title: const Text('Merchant'),
+          icon: const Icon(Icons.shop_outlined),
+        ),
       ],
     );
   }

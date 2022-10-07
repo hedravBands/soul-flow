@@ -9,7 +9,9 @@ import '../../domain/usecase/delete_sanctum_usecase.dart';
 part 'sanctum_event.dart';
 part 'sanctum_state.dart';
 
+// ignore: constant_identifier_names
 const String SERVER_FAILURE_MESSAGE = 'Server Failure';
+// ignore: constant_identifier_names
 const String CACHE_FAILURE_MESSAGE = 'Cache Failure';
 
 class SanctumBloc extends Bloc<SanctumEvent, SanctumState> {

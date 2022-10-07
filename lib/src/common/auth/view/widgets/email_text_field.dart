@@ -13,6 +13,7 @@ class EmailTextField extends StatelessWidget {
     return TextField(
       controller: emailController,
       keyboardType: TextInputType.emailAddress,
+      keyboardAppearance: Brightness.dark,
       autocorrect: false,
       decoration: const InputDecoration(
         hintText: enterYourEmailHere,

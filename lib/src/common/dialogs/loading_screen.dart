@@ -6,7 +6,7 @@ import 'package:soulflow/src/common/dialogs/loading_screen_controller.dart';
 class LoadingScreen {
   // singleton pattern
   LoadingScreen._sharedInstance();
-  static late final LoadingScreen _shared = LoadingScreen._sharedInstance();
+  static final LoadingScreen _shared = LoadingScreen._sharedInstance();
   factory LoadingScreen() => _shared;
 
   LoadingScreenController? _controller;

@@ -1,7 +1,7 @@
 import 'package:flutter/foundation.dart' show immutable;
-import 'package:soulflow/src/common/auth/model/login_handle.dart';
 
 import '../../../module/sanctuary/domain/model/note.dart';
+import '../../auth/model/login_handle.dart';
 
 @immutable
 class AppState {
