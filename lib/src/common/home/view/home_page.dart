@@ -78,7 +78,7 @@ class _HomePageState extends State<HomePage> {
             ),
           ),
         ),
-        floatingActionButton: const buildFAB(),
+        //floatingActionButton: const buildFAB(),
         bottomNavigationBar: buildBottomNavyBar(),
       ),
     );

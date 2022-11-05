@@ -1,16 +1,74 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../../../../injection_container.dart';
-import '../bloc/sanctum_bloc.dart';
+import '../../../../../main.dart';
+import '../../domain/model/sanctum.dart';
+import 'sanctum_page.dart';
 
-final List<String> sanctumList = <String>[
-  'S1 L1 Core',
-  'S2 L2 Earth',
-  'S3 L3 Water',
-  'S4 L4 Wind',
-  'S5 L5 Fire',
-  'S6 L6 Ether'
+final List<Sanctum> sanctumList = <Sanctum>[
+  const Sanctum(
+    id: '0',
+    element: 'Core',
+    type: 'Fundamental',
+    name: 'Fundamental Core',
+    level: 1,
+    description: 'Sanctum Fundamental Core',
+    info: ['Sanctum', 'Core', 'Fundamental'],
+  ),
+  const Sanctum(
+    id: '1',
+    element: 'Earth',
+    type: 'Essential',
+    name: 'Essential Earth',
+    level: 1,
+    description: 'Sanctum Essential Earth',
+    info: ['Sanctum', 'Earth', 'Essential'],
+  ),
+  const Sanctum(
+    id: '2',
+    element: 'Water',
+    type: 'Essential',
+    name: 'Essential Water',
+    level: 1,
+    description: 'Sanctum Essential Water',
+    info: ['Sanctum', 'Water', 'Essential'],
+  ),
+  const Sanctum(
+    id: '3',
+    element: 'Air',
+    type: 'Essential',
+    name: 'Essential Air',
+    level: 1,
+    description: 'Sanctum Essential Air',
+    info: ['Sanctum', 'Air', 'Essential'],
+  ),
+  const Sanctum(
+    id: '4',
+    element: 'Fire',
+    type: 'Essential',
+    name: 'Essential Fire',
+    level: 1,
+    description: 'Sanctum Essential Fire',
+    info: ['Sanctum', 'Fire', 'Essential'],
+  ),
+  const Sanctum(
+    id: '5',
+    element: 'Ether',
+    type: 'Sublime',
+    name: 'Sublime Ether',
+    level: 1,
+    description: 'Sanctum Sublime Ether',
+    info: ['Sanctum', 'Ether', 'Sublime'],
+  ),
+];
+
+final List<Color> colorList = [
+  Colors.grey,
+  Colors.green,
+  Colors.blueAccent,
+  Colors.lightBlueAccent,
+  Colors.amber,
+  Colors.deepPurpleAccent
 ];
 
 class SanctuaryPage extends StatefulWidget {
@@ -26,51 +84,78 @@ class _SanctuaryPageState extends State<SanctuaryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SingleChildScrollView(
-        child: BlocProvider(
-          create: (_) => sl<SanctumBloc>(),
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.all(10),
-              child: Column(
-                children: [
-                  Row(
-                    children: <Widget>[
-                      TextButton(
-                          onPressed: () {
-                            context.read<SanctumBloc>().add(
-                                  const CreateSanctumEvent(id: 'index'),
-                                );
-                          },
-                          child: const Text('Create Sanctum')),
-                      TextButton(
-                          onPressed: () {
-                            context.read<SanctumBloc>().add(
-                                  const DeleteSanctumEvent(id: 'index'),
-                                );
-                          },
-                          child: const Text('Delete Sanctum')),
-                    ],
-                  ),
-                  BlocBuilder<SanctumBloc, SanctumState>(
-                      builder: (context, state) {
-                    if (state is Empty) {
-                      return const Text('Empty State');
-                    } else if (state is Loading) {
-                      return const CircularProgressIndicator();
-                    } else if (state is Loaded) {
-                      return const Text('Loaded State');
-                    } else if (state is Error) {
-                      return const Text('Error State');
-                    } else {
-                      return const Text('Unexpected State');
-                    }
-                  }),
-                ],
-              ),
-            ),
-          ),
+      body: ListView.separated(
+        separatorBuilder: (_, __) => const SizedBox(
+          height: 12,
         ),
+        reverse: true,
+        padding: const EdgeInsets.all(20),
+        itemCount: sanctumList.length,
+        itemBuilder: (context, index) {
+          final sanctum = sanctumList[index];
+          return BuildSanctum(sanctum: sanctum);
+        },
+      ),
+    );
+  }
+}
+
+class BuildSanctum extends ConsumerWidget {
+  const BuildSanctum({
+    Key? key,
+    required this.sanctum,
+  }) : super(key: key);
+
+  final Sanctum sanctum;
+
+  @override
+  Widget build(BuildContext context, WidgetRef ref) {
+    final sanctumProvider = sanctumProviderList[int.parse(sanctum.id)];
+    final int counter = ref.watch(sanctumProvider);
+
+    ref.listen<int>(sanctumProvider, (prev, next) {
+      if (next >= 100) {
+        ref.read(sanctumProvider.notifier).state = 100;
+        showDialog(
+            context: context,
+            builder: (context) {
+              return AlertDialog(
+                title: const Text('Congratulations!'),
+                content: const Text('Activity is now Ready!'),
+                actions: [
+                  TextButton(
+                    onPressed: () {
+                      // give candy and pop
+                      Navigator.of(context).pop();
+                    },
+                    child: const Text('OK'),
+                  ),
+                ],
+              );
+            });
+      }
+    });
+
+    return Card(
+      elevation: 12,
+      borderOnForeground: true,
+      shadowColor: colorList[int.parse(sanctum.id)],
+      child: ListTile(
+        leading: CircleAvatar(
+          radius: 28,
+          backgroundColor: colorList[int.parse(sanctum.id)],
+        ),
+        trailing: counter >= 100
+            ? const Icon(Icons.add_alert)
+            : const Icon(Icons.access_alarm_outlined),
+        isThreeLine: true,
+        title: Text(sanctum.name),
+        subtitle: Text('${sanctum.description}\nProgress Level:  $counter %'),
+        onTap: () {
+          Navigator.of(context).push(MaterialPageRoute(
+            builder: (context) => SanctumPage(sanctum: sanctum),
+          ));
+        },
       ),
     );
   }
